@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+@use 'Intermediate';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+
+@include Intermediate.Portfolio_overview;
+
+$background: #98623c;
+$background_change: #8DA0B6;
+$font-family:"source-han-sans-japanese, sans-serif";
+$font-style:normal;
+$font-weight:500;
+
+.musicplayer{
+    padding: 3em 0;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.img_area{
+    position: relative;
+    height: 190px;
+    max-width: 205px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.img_block{
+    height: inherit;
+    border-radius: 6em;;
+    &.rote{
+        animation: 8s  rotate_animation linear infinite;
+    }
+    &.rosestop{
+        animation: 8s  rotate_animation linear infinite;
+        animation-play-state:paused;
+    }
+    &.roseReset{
+        animation-name: Reset;
+    }
+    @keyframes rotate_animation{
+        from{
+            transform: rotate(0);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes Reset{
+        to{
+            transform: rotate(0);
+        }
+        
+    }
+}
+.player_box{
+    border: 2px solid $background;
+    box-shadow: 0px 0 5px 0 $background;
+    padding: 10px 0 20px;
+    border-radius: 60px 60px 60px 60px;
+    position: relative;
+    margin-top: 13px;
+    &.paused{
+        animation: 2s flash linear infinite;
+        @keyframes flash {
+            20%{
+                border: 2px solid $background_change;
+                box-shadow: 0px 0 5px 0 $background_change;
+            }
+            40%{
+                border: 2px solid $background;
+                box-shadow: 0px 0 5px 0 $background;
+            }
+            80%{
+                border: 2px solid $background_change;
+                box-shadow: 0px 0 5px 0 $background_change;
+            }
+            100%{
+                border: 2px solid $background;
+                box-shadow: 0px 0 5px 0 $background;
+            }
+        }
+    }
+}
+.player_box_information{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.player_box_information.leftActive{
+    animation: 5s informationleft linear forwards;
+}
+.player_box_information.rightActive{
+    animation: 5s informationright linear forwards;
+}
+@keyframes  informationleft{
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-30%);
+    }
+}
+@keyframes  informationright{
+    from{
+        transform: translate(30%);
+    }
+    to{
+        transform: translate(0);
+    }
+}
+.player_controller{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
+    color: #575757;
+}
+
+.player_controller_button{
+    display: flex;
+    font-size: 23px;
+    color: white;
+    column-gap: 2em;
+}
+
+.return,.plays,.next{
+    cursor: pointer;
+}
+
+.player_controller_indicator{
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timer{
+    text-align: right;
+    cursor: default;
+    color: white;
+}
+
+.indicator{
+    height: 10px;
+    width: 100%;
+    background: #ECECEC;
+    border-radius: 50px;
+    box-shadow: 0 1px 5px 2px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.indicator_progress{
+    position: relative;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(#FFFFFF,#F1A5FF);
+    &::before{
+        content: "";
+        position: absolute;
+        height: 13px;
+        width: 13px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #B9B9B9;
+        top: -3px;
+        right: -8px;
+        cursor: pointer;
+        transition: .2s ease-out;
+    }
+}
+
+@include Intermediate.tab_active;
+
+footer{
+    height: 150px;
+}
+
+@mixin breakpoint_500 {
+    @media screen and (max-width: 500px){
+        .portfolio_overview{
+            word-break: normal;
+            max-width: 300px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 3em;
+            text-align: start;
+            padding: 1em 5%;
+        }
+
+        .skillset{
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            row-gap: 5px;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+        .html_skill, .Javascript_skill, .gulp_skill{
+            list-style: none;
+        }
+
+        .musicplayer{
+            max-width: 315px;
+        }
+
+        .player_box{
+           display: flex;
+           flex-direction: column;
+           padding: 1em;
+        }
+        .player_box_information{
+            display: block;
+        }
+        .player_box_information.leftActive{
+            animation: none;
+        }
+        .player_box_information.rightActive{
+            animation: none;
+        }
+        .player_controller{
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-top: 1em;
+        }
+
+        .return, .plays, .next{
+            padding: 0 0.8em;
+        }
+        .player_controller_indicator{
+            width: 80%;
+        }
+        .indicator{
+            height: 8px;
+        }
+        .player_controller_button{
+            font-size: 1.8em;
+            padding-top: 0.9em;
+            column-gap: 0;
+        }
+        .website, .webtool{
+            width: 3em;
+            padding: 0 2%;
+        }
+        .website_type1, .website_type2, 
+        .website_type3, .webtool_type1, 
+        .webtool_type2{
+            font-size: 14px;
+        }
+    }
+}
+@include breakpoint_500;
+
+@include Intermediate.dark;
+
+@include Intermediate.light;

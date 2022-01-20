@@ -1,0 +1,327 @@
+@charset "UTF-8";
+
+@use 'Intermediate';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+$font-family:"source-han-sans-japanese, sans-serif";
+$font-style:normal;
+$font-weight:500;
+
+@include Intermediate.Portfolio_overview;
+
+.diagnose_block{
+    margin: 50px 0;
+}
+
+.tool_title{
+    letter-spacing: 3px;
+    font-family: togebarabold, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    font-size: 25px;
+}
+
+.diagnose_explanation{
+    color: #FFFFFF;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 18px;
+    line-height: 38px;
+    letter-spacing: 2px;
+    padding:46px;
+}
+
+.namePlayer{
+    appearance: none;
+    background: white;
+    outline: none;
+    font-size: clamp(18px,4vw,23px);
+    height: 50px;
+    width: 70%;
+    color: black;
+    text-align: center;
+    &::placeholder{
+        color: black;
+        text-align: center;
+    }
+}
+
+.description{
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin-top: 20px;
+    color: white;
+}
+
+.name_caution{
+    color: red;
+    display: none;
+}
+
+.button_area{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 0;
+}
+
+.Reincarnation_Start{
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    background: black;
+    outline: none;
+    padding: 30px;
+    appearance: none;
+    font-size: 30px;
+    height: 250px;
+    letter-spacing: 3px;
+    position: relative;
+    &:hover{
+        transition: .8s;
+        background: white;
+        color: black;
+    }
+    &::before{
+        position: absolute;
+        content: "";
+        height: 100%;
+        top: 0;
+        left: 0%;
+        width: 50%;
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        height: 100%;
+        top: 0;
+        right: 0%;
+        width: 50%;
+    }
+    &:hover::before{
+        transform: translate(-100%,0);
+        background: white;
+        transition: .5s ease-out;
+        visibility: hidden;
+        opacity: 0;
+    }
+    &:hover::after{
+        transform: translate(100%,0);
+        background: white;
+        transition: .5s ease-out;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+.question{
+    background: white;
+    border-radius: 20px;
+    font-family: dnp-shuei-anti-std, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.Answer_list{
+    line-height: 50px;
+    padding: 0 8% 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.Answer{
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.Answer_1{
+    background: linear-gradient(50deg,#FF3366 80%,#FFFFFF);
+    &:hover{
+        background: #FF3366;
+    }
+}
+
+.Answer_2{
+    background: linear-gradient(50deg,#0066FF 80%,#FFFFFF);
+    &:hover{
+        background: #0066FF;
+    }
+}
+
+.Answer_3{
+    background: linear-gradient(50deg,#00CC99 80%,#FFFFFF);
+    &:hover{
+        background: #00CC99;
+    }
+}
+
+.Answer_4{
+    background: linear-gradient(50deg,#6666FF 80%,#FFFFFF);
+    &:hover{
+        background: #6666FF;
+    }
+}
+
+.btn{
+    color: white;
+    padding: 0 10px;
+    letter-spacing: 3px;
+    display: block;
+}
+
+@for $i from 1 through 10{
+    #q_#{$i} p{
+        font-size: 18px;
+        color: black;
+        padding: 23px 5%;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+}
+
+.total{
+    color: white;
+    font-family: dnp-shuei-anti-std, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    display: none;
+    padding: 25px 0;
+}
+
+.total_level{
+    letter-spacing: 5px;
+    font-size: clamp(17px,4vw,22px);
+    text-align: center;
+    padding: 10px;
+}
+
+.total_list{
+    width: 95%;
+    font-size: clamp(15px,3vw,16px);
+    margin:0 auto;
+    background:#EEEEEE;
+    line-height: 38px;
+    color: black;
+    padding: 1em;
+    & h3{
+        font-size: 25px;
+        text-align: center;
+        color: black;
+    }
+    & p{
+        padding: 15px 0;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        color: black;
+        text-align: left;
+    }
+    & h4{
+        font-size:clamp(16px,4vw,20px);
+        color: black;
+        margin: 30px 0;
+        border-bottom: 1px solid black;
+        letter-spacing: 2px;
+    }
+}
+
+.portfoliolist_block{
+    margin: 30px 0;
+}
+
+@include Intermediate.tab_active;
+
+footer{
+    height: 150px;
+}
+
+@mixin breakpoint_500 {
+    @media screen and (max-width: 500px){
+        .portfolio_overview{
+            font-size: 16px;
+            max-width: 300px;
+            line-height: 3;
+            overflow-wrap: break-word;
+            word-break: normal;
+            text-align: start;
+        }
+        .html_skill, .Javascript_skill, .gulp_skill{
+            list-style: none;
+        }
+        .skillset{
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            row-gap: 5px;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+        .tool_overview{
+            margin: 70px 0 0;
+        }
+        .tool_title{
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+        .diagnose_explanation{
+            font-size: 15px;
+            padding: 2em 0;
+            max-width: 300px;
+            margin: 0 auto;
+            word-break: normal;
+            text-align: left;
+        }
+        .description{
+            letter-spacing: 0;
+            line-height: 2em;
+            padding: 0 3em;
+            font-size: 16px;
+        }
+        @for $i from 1 through 10{
+            #q_#{$i} p{
+                font-size: 15px;
+                text-align: start;
+                word-break: normal;
+                overflow-wrap: normal;
+            }
+        }
+        .Answer{
+            font-size: 14px;
+        }
+        .total_level{
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+        .total_list{
+            line-height: 2.4em;
+            width: 90%;
+            padding: 0.8em;
+            & h4{
+                margin: 15px 0;
+            }
+        }
+        .website, .webtool{
+            width: 3em;
+            padding: 0 2%;
+        }
+        .website_type1, .website_type2, 
+        .website_type3, .webtool_type1, 
+        .webtool_type2{
+            font-size: 14px;
+        }
+    }
+}
+@include breakpoint_500;
+
+@include Intermediate.light;
+
+@include Intermediate.dark;

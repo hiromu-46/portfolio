@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+@use 'Intermediate';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+$font-family:"source-han-sans-japanese, sans-serif";
+$font-style:normal;
+$font-weight:500;
+
+.profile_bar{
+    margin: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_home{
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: 25px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 15px;
+    color: white;
+
+    &.borderActive::after{
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        left: 0%;
+        bottom: 1px;
+        background: white;
+        transform-origin: center;
+        animation: .3s borderanimation ease-out;
+    }
+    @keyframes borderanimation {
+        from{
+            transform: scale(0,0);
+        }
+        to{
+            transform: scale(1,1);
+        }
+    }
+}
+
+.portfolio_block{
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio_title{
+    display: inline-block;
+    letter-spacing: 2px;
+}
+
+.portfolio_overview{
+    font-size: 18px;
+    line-height: 3.3em;
+    max-width: 430px;
+    margin: 0 auto;
+    word-break: keep-all;
+}
+
+.skillset{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+.html_skill,.Javascript_skill,.gulp_skill{
+    list-style: inside;
+    font-size: 18px;
+}
+
+.portfolio_screen_block{
+    padding: 8% 5%;
+    width: 88%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+@include Intermediate.tab_active;
+
+footer{
+    height: 150px;
+}
+
+@mixin  breakpoint_500{
+    @media screen and (max-width: 500px) {
+        .portfolio_overview{
+            word-break: normal;
+            text-align: start;
+            margin: 0 auto;
+            padding: 1em 5%;
+            max-width: 300px;
+            font-size: 16px;
+            line-height: 2.7em;
+        }
+        .portfolio_screen_block{
+            padding: 3em 0;
+        }
+        .skillset{
+            max-width: 300px;
+            margin: 0 auto;
+            column-gap: 30px;
+        }
+        .html_skill, .Javascript_skill, .gulp_skill{
+            list-style: none;
+        }
+        .website, .webtool{
+            width: 3em;
+        }
+        .website_type1, .website_type2, 
+        .website_type3, .webtool_type1, 
+        .webtool_type2{
+            font-size: 14px;
+        }
+    }
+}
+@include breakpoint_500;
+
+@include Intermediate.light;
+
+@include Intermediate.dark;

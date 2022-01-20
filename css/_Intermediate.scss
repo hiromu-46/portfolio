@@ -1,0 +1,238 @@
+@mixin light {
+    @media (prefers-color-scheme: light){
+        body{
+            background: white;
+            transition: .5s;
+        }
+        header{
+            background: white;
+            transition: .5s;
+        }
+        .profile::after{
+            background: black;
+        }
+        .skill_overview.active{
+            box-shadow: none;
+        }
+        .website::after,.webtool::after{
+            background: black;
+        }
+        .tab_active{
+            color: black;
+        }
+        .profile_home{
+            color: black;
+            &.borderActive::after{
+                background: black;
+            }
+        }
+        .portfolio_screen{
+            box-shadow: 0px 0px 4px 0px #808080;
+        }
+        .website_type1,
+        .website_type2, .website_type3, 
+        .webtool_type1, .webtool_type2,.webtool_type3{
+            box-shadow: 0px 0px 4px 0px #808080;
+        }
+        .tool_title{
+            color: black;
+        }
+        p,div,span,h3{
+            color: black;
+        }
+        .namePlayer{
+            border: 1px solid #808080;
+        }
+        .question{
+            border: 1px solid #808080;
+        }
+        
+    }
+}
+
+@mixin dark {
+    @media (prefers-color-scheme: dark){
+        body{
+            background: #202124;
+            transition: .5s;
+        }
+        h2,p,h3,h4,li{
+            color: white;
+        }
+        .question{
+            background: #EEEEEE;
+        }
+    }
+}
+
+@mixin Portfolio_overview {
+    $font-family:"source-han-sans-japanese, sans-serif";
+    $font-style:normal;
+    $font-weight:500;
+
+    .profile_bar{
+        margin: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile_home{
+        font-family:$font-family;
+        font-style:$font-style;
+        font-weight:$font-weight;
+        font-size: 25px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        position: relative;
+        padding: 0 15px;
+        color: white;
+        &.borderActive::after{
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            left: 0%;
+            bottom: 1px;
+            background: white;
+            transform-origin: center;
+            animation: .3s borderanimation ease-out;
+        }
+        @keyframes borderanimation {
+            from{
+                transform: scale(0,0);
+            }
+            to{
+                transform: scale(1,1);
+            }
+        }
+    }
+
+    .portfolio_block{
+        text-align: center;
+        max-width: 950px;
+        margin: 0 auto;
+    }
+    
+    .portfolio_title{
+        display: inline-block;
+        letter-spacing: 2px;
+    }
+    
+    .portfolio_overview{
+        font-size: 18px;
+        line-height: 2.5em;
+        max-width: 430px;
+        padding: 1em 0;
+        margin: 0 auto;
+        word-break: keep-all;
+    }
+    
+    .skillset{
+        display: flex;
+        column-gap: 20px;
+        justify-content: center;
+    }
+    
+    .html_skill,.Javascript_skill,.gulp_skill,
+    .Express_skill,.MySQL_skill{
+        list-style: inside;
+        font-size: 18px;
+    }
+}
+
+@mixin tab_active {
+    img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+
+    .portfolio_tab_block{
+        display: flex;
+        justify-content: center;
+        column-gap: 80px;
+        font-size: 22px;
+    }
+    
+    .website,.webtool{
+        cursor: pointer;
+        padding: 10px 15px 0;
+        position: relative;
+        border-radius: 10px 10px 0 0;
+        width: 4em;
+        text-align: center;
+        &::after{
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            left: 0%;
+            bottom: 0;
+            background: white;
+            transform-origin: center;
+            transform: scale(0,1);
+            transition: .4s;
+        }
+        &:hover::after{
+            transform: scale(1,2);
+        }
+    }
+    
+    .tab_active{
+        color: white;
+        &::after{
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            left: 0%;
+            bottom: 0;
+            background: white;
+            transform-origin: center;
+            transform: scale(1,2);
+        }
+    }
+    
+    .portfolio_list_block{
+        margin: 30px 0;
+        position: relative;
+    }
+    .portfolio_webtool_block{
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    
+    .website_list,.webtool_list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px 55px;
+    }
+    
+    .website_type1,.website_type2,.website_type3,
+    .webtool_type1,.webtool_type2,.webtool_type3{
+        width: 80%;
+        text-align: center;
+        transition: .3s;
+        &:hover{
+            transform: scale(1.05);
+            transition: .3s;
+        }
+        & h3{
+            margin-top: 3px;
+        }
+    }
+    
+    .portfolio_list{
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s linear;
+    }
+    
+    .list_active{
+        visibility: visible;
+        opacity: 1;
+        transition: .9s ease-out;
+    }
+}

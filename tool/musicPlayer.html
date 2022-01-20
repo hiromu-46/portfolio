@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musicPlayer</title>
+    <link rel="stylesheet" href="../css/musicplayer.css">
+    <script src="https://kit.fontawesome.com/17160ed5e6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <div class="profile_bar">
+        <a href="../index.html"><h2 class="profile_home">HOME</h2></a>
+    </div>
+    <div class="portfolio_block">
+        <h3 class="portfolio_title">MusicPlayer</h3>
+        <p class="portfolio_overview">
+            ミュージックプレイヤー<br>
+            早送りと巻き戻しの機能を搭載している。
+            インジケーターで時間を選択できるようにしました。
+        </p>
+        <ul class="skillset">
+            <li class="html_skill">HTML/Sass</li>
+            <li class="Javascript_skill">Javascript</li>
+            <li class="gulp_skill">gulp</li>
+        </ul>
+        <div class="musicplayer">
+            <div class="img_area">
+                <img class="rosestop img_block" src="" alt="music_img">
+            </div>
+            <div class="player_box">
+                <div class="player_box_information">
+                    <div class="player_box_name">
+                        <p class="artist"></p>
+                    </div>
+                    <div class="player_box_title">
+                        <p class="title"></p>
+                    </div>
+                </div>
+                <div class="player_controller">
+                    <div class="player_controller_button">
+                        <div class="return"><i class="fas fa-fast-backward"></i></div>
+                        <div class="plays"><i class="fas fa-play"></i></div>
+                        <div class="next"><i class="fas fa-fast-forward"></i></div>
+                    </div>
+                    <div class="player_controller_indicator">
+                        <div class="timer"><span></span></div>
+                        <div class="indicator">
+                            <div class="indicator_progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="main_audio" src=""></audio>
+            </div>
+        </div>
+        <div class="portfoliolist_block">
+            <ul class="portfolio_tab_block">
+                <li class="webtool portfolio_tab tab_active">tool</li>
+                <li class="website portfolio_tab">site</li>
+            </ul>
+            <div class="portfolio_list_block">
+                <div class="portfolio_webtool_block portfolio_list list_active">
+                    <ul class="webtool_list">
+                        <li class="webtool_type1">
+                            <a href="musicPlayer.html">
+                                <img src="../img/webtool1tab.png" alt="MusicPlayer画像">
+                                <h3>musicplayer tool</h3>
+                            </a>
+                        </li>
+                        <li class="webtool_type2">
+                            <a href="diagnostic.html">
+                                <img src="../img/webtool2tab.png" alt="diagnostic画像">
+                                <h3>diagnostic tool</h3>
+                            </a>
+                        </li>
+                        <li class="webtool_type3">
+                            <a href="search.html">
+                                <img src="../img/webtool3tab.png" alt="search画像">
+                                <h3>diagnostic tool</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portfolio_website_block portfolio_list">
+                    <ul class="website_list">
+                        <li class="website_type1">
+                            <a href="../site/onlineShopping.html">
+                                <img src="../img/website1-1tab.png" alt="OnlineShoppingSite画像">
+                                <h3>online shopping site</h3>
+                            </a>
+                        </li>
+                        <li class="website_type2">
+                            <a href="../site/scool.html">
+                                <img src="../img/website2-1tab.png" alt="scool画像">
+                                <h3>school site</h3>
+                            </a>
+                        </li>
+                        <li class="website_type3">
+                            <a href="../site/videoGame.html">
+                                <img src="../img/website3-1tab.png" alt="VideoGame画像">
+                                <h3>Video game site</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+        </footer>
+    <script src="../js/musicplayer.js" type="module"></script>
+</body>
+</html>

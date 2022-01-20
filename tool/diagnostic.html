@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diagnostic</title>
+    <link rel="stylesheet" href="../css/diagnostic.css">
+</head>
+<body>
+    <div class="profile_bar">
+        <a href="../index.html"><h2 class="profile_home">HOME</h2></a>
+    </div>
+    <div class="portfolio_block">
+        <h3 class="portfolio_title">Diagnostic</h3>
+        <p class="portfolio_overview">
+            Javascriptを用いた診断ツール。<br>
+            各選択肢に点数を付与。その合計点から結果を算出しました。
+        </p>
+        <ul class="skillset">
+            <li class="html_skill">HTML/Sass</li>
+            <li class="Javascript_skill">Javascript</li>
+            <li class="gulp_skill">gulp</li>
+        </ul>
+        <div class="diagnose_block">
+            <div class="tool_overview">
+                <h3 class="tool_title">転生適正レベル診断メーター</h3>
+                <div class="diagnose_explanation">
+                    <p>
+                        今から4択の質問をします<br>
+                        その結果を基に異世界での適正レベルをお伝えします。<br>
+                        気軽にお答えください。
+                    </p>
+                </div>
+            </div>
+            <input type="text" class="namePlayer" name =Reincarnation_Name  placeholder="貴方のお名前は？">
+            <div class="description">
+                <p class="name_caution">※名前を入力してください※</p>
+            </div>
+            <div class="button_area">
+                <button type="button" class="Reincarnation_Start">転生開始</button>
+            </div>
+        </div>
+        <div class="question">
+            <div id="q_1">
+                <p>質問1:好きな魔法の種類は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">回復魔法</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">身体能力魔法</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">防御魔法</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">攻撃魔法</a></li>
+                </ul>
+            </div>
+            <div id="q_2" style="display: none;">
+                <p>質問2:散歩していたら、声を掛けられました。
+                    「敵に追いかけられています。どうか力を貸してください」
+                    貴方が次に取る行動は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">助ける</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">町の憲兵へ相談</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">素通りして無視</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">状況次第で助ける</a></li>
+                </ul>
+            </div>
+            <div id="q_3" style="display: none;">
+                <p>質問3:知らない場所で目覚めました。
+                    所持品はなし。貴方の目的は家に帰ることです。
+                    最初に取る行動は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">通信手段を探す</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">周囲の情報収集</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">信頼できる人を見つける</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">金品を得る方法を探す</a></li>
+                </ul>
+            </div>
+            <div id="q_4" style="display: none;">
+                <p>質問4:好きな異性が目の前にいます。
+                    その人の身分は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">貴族</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">製造業者</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">専門職（鍛冶師など）</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">商人</a></li>
+                </ul>
+            </div>
+            <div id="q_5" style="display: none;">
+                <p>質問5:武術大会に貴方は出場します。
+                    出場する目的は、優勝賞品を得るためです。
+                    その賞品の正体は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">お金</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">住居</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">旅行</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">書籍</a></li>
+                </ul>
+            </div>
+            <div id="q_6" style="display: none;">
+                <p>質問6:敵との戦闘で、仲間が瀕死状態になりました。
+                    数十分で仲間の命が尽きます。
+                    貴方が最初に取る行動は？（貴方の職業は医者です）
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">周囲に助けを求める</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">応急処置を施す</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">医療仲間を探す</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">緊急手術する</a></li>
+                </ul>
+            </div>
+            <div id="q_7" style="display: none;">
+                <p>質問7:貴方は神からスキルを貰いました。
+                    どんなスキルを貰いましたか？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">専門スキル(動画編集など)</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">情報収集スキル</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">分析スキル</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">プレゼンテーションスキル</a></li>
+                </ul>
+            </div>
+            <div id="q_8" style="display: none;">
+                <p>質問8:貴方の地位は貴族です。
+                    一般市民は貧困で苦しんでいます。
+                    貴方は援助しようと決めました。
+                    どんな援助をしますか？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">お金を配る</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">高価な品を渡す(宝石など)</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">食材を提供する</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">仕事を与える</a></li>
+                </ul>
+            </div>
+            <div id="q_9" style="display: none;">
+                <p>質問9:盗賊は貴方に攻撃を仕掛けました。
+                    攻撃を避けた貴方は、盗賊の背後に回った。
+                    どこに攻撃を加えますか？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1" data-value="a">脚</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2" data-value="b">手・腕</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3" data-value="c">頭</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4" data-value="d">首</a></li>
+                </ul>
+            </div>
+            <div id="q_10" style="display: none;">
+                <p>質問10:「森の中に潜む魔物を倒してほしい」
+                    貴方は友人からの依頼を引き受けました。
+                    まず最初に取る行動は？
+                </p>
+                <ul class="Answer_list">
+                    <li class="Answer_1 Answer"><a class="btn b_1 end" data-value="a">近隣の被害確認</a></li>
+                    <li class="Answer_2 Answer"><a class="btn b_2 end" data-value="b">武器の選別</a></li>
+                    <li class="Answer_3 Answer"><a class="btn b_3 end" data-value="c">魔物の情報収集</a></li>
+                    <li class="Answer_4 Answer"><a class="btn b_4 end" data-value="d">森の地形を把握</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="total">
+            <div class="total_level">
+                <h3 class="result"><span class="you_player"></span><span class="Reincarnation_level"></span></h3>
+            </div>
+            <ul class="total_list">
+                <li class="lv_Answer" style="display: none;">
+                    <h3>総評</h3>
+                    <p>貴方は場の調和を乱さない人です。<br>
+                        一般的に空気が読めるタイプでしょう。
+                        RPGで例えるなら、仲間の輪を整える賢人的存在。
+                        集団生活で重宝される人材です。
+                        しかし異世界では何事も上手くいきません。
+                        "仲間の裏切り"や"忠実に練った考えが裏目に出る"など数多くの危険が潜んでいます。
+                        優しいが故に命を落とす危険もある。
+                        全ての事柄に対して、優しさを持っていると足元をすくわれます。
+                        辛いと感じた時に、貴方は何をしていますか？
+                        自分の心を労わる行動も大切です。
+                        少しだけ心の声に忠実に動いてみましょう。
+                    </p>
+                    <h4><span class="Profession_1"></span></h4>
+                    <h4><span class="Race_1"></span></h4>
+                </li>
+                <li class="lv_Answer" style="display: none;">
+                    <h3>総評</h3>
+                    <p>貴方は理性的な考えを持って行動する人です。<br>
+                        RPGで例えるなら、弓使いや魔導士などの職業を得意とする。
+                        指示を出すリーダーというより、鼓舞を得意とするリーダーです。
+                        周囲が混乱している状況で貴方は力を発揮する。
+                        しかしこのレベルの人は、日常生活でも理性的な行動を取る。
+                        その影響で失敗した経験はありませんか?
+                        時には感情に任せて行動することも正しい選択です。
+                        大事なのは理性と感情の二つを持ち合わせること。
+                        理性と感情を持ちながら生活してみましょう。
+                    </p>
+                    <h4><span class="Profession_2"></span></h4>
+                    <h4><span class="Race_2"></span></h4>
+                </li>
+                <li class="lv_Answer" style="display: none;">
+                    <h3>総評</h3>
+                    <p>貴方はバランスの取れた思考を持つ人です。
+                        理性的な考えを持ちながら、感情的な考えも備わっている。
+                        例えるなら天秤を支える柱です。
+                        錘が傾かないように、平衡を維持する力を持っています。
+                        しかし何かの弾みで鉛が傾く危険もある。
+                        同じように貴方の身に危害が及べば、
+                        感情的・理性的にもなる。言わば、情緒不安定に陥ります。
+                        厄介なのが片方に傾くと、その考えしか見ない傾向が強い。
+                        当然、逆も然り。一方の考えに傾かないように注意しましょう。
+                    </p>
+                    <h4><span class="Profession_3"></span></h4>
+                    <h4><span class="Race_3"></span></h4>
+                </li>
+                <li class="lv_Answer" style="display: none;">
+                    <h3>総評</h3>
+                    <p>貴方は非情な選択を下せる度胸を持っています。
+                        危機的状況に陥っても貴方は、最善の道を選択できる。
+                        しかし失敗したときの波紋が計り知れない。
+                        例えば貴方が何かに失敗したと仮定する。
+                        普通なら乗り越える部分です。
+                        でも貴方はその都度止まってしまう。
+                        何故、失敗したのか。考えすぎる。
+                        貴方は失敗したとき、心に何を感じていますか?
+                        まずは数センチだけ前に進んでみましょう。
+                        進んだ瞬間から、貴方が見る世界は大きく変わります。
+                    </p>
+                    <h4><span class="Profession_4"></span></h4>
+                    <h4><span class="Race_4"></span></h4> 
+                </li>
+                <li class="lv_Answer" style="display: none;">
+                    <h3>総評</h3>
+                    <p>貴方は高い壁を乗り越える力を持っています。
+                        RPGで例えるなら騎士団長タイプです。
+                        このタイプの人は人間性が素晴らしい。
+                        きっと貴方は偏見を持たない性格でしょう。
+                        しかし言い換えれば、貴方は誰とでも接します。
+                        そのとき、貴方は相手の要望を断る自信がありますか？
+                        無理に引き受けて自分を追い詰める必要はありません。
+                        まずは断る気持ちを持つことです。
+                        断る気持ちが育った段階で相手の要望を断ってみましょう。
+                        人生を豊かに歩む上では、断る力が必須能力です。
+                    </p>
+                    <h4><span class="Profession_5"></span></h4>
+                    <h4><span class="Race_5"></span></h4>
+                </li>
+            </ul>
+        </div>
+        <div class="portfoliolist_block">
+            <ul class="portfolio_tab_block">
+                <li class="webtool portfolio_tab tab_active">tool</li>
+                <li class="website portfolio_tab">site</li>
+            </ul>
+            <div class="portfolio_list_block">
+                <div class="portfolio_webtool_block portfolio_list list_active">
+                    <ul class="webtool_list">
+                        <li class="webtool_type1">
+                            <a href="musicPlayer.html">
+                                <img src="../img/webtool1tab.png" alt="MusicPlayer画像">
+                                <h3>musicplayer tool</h3>
+                            </a>
+                        </li>
+                        <li class="webtool_type2">
+                            <a href="diagnostic.html">
+                                <img src="../img/webtool2tab.png" alt="diagnostic画像">
+                                <h3>diagnostic tool</h3>
+                            </a>
+                        </li>
+                        <li class="webtool_type3">
+                            <a href="search.html">
+                                <img src="../img/webtool3tab.png" alt="search画像">
+                                <h3>diagnostic tool</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portfolio_website_block portfolio_list">
+                    <ul class="website_list">
+                        <li class="website_type1">
+                            <a href="../site/onlineShopping.html">
+                                <img src="../img/website1-1tab.png" alt="OnlineShoppingSite画像">
+                                <h3>online shopping site</h3>
+                            </a>
+                        </li>
+                        <li class="website_type2">
+                            <a href="../site/scool.html">
+                                <img src="../img/website2-1tab.png" alt="scool画像">
+                                <h3>school site</h3>
+                            </a>
+                        </li>
+                        <li class="website_type3">
+                            <a href="../site/videoGame.html">
+                                <img src="../img/website3-1tab.png" alt="VideoGame画像">
+                                <h3>Video game site</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+    <script src="../js/diagnostic.js" type="module"></script>
+</body>
+</html>
